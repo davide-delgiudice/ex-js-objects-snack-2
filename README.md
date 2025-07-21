@@ -1,1 +1,1 @@
-# ex-js-objects-snack-2
+Risolvere i Code Question scrivendo nei commenti le risposte corrette.

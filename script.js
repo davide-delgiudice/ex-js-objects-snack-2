@@ -36,22 +36,22 @@
 
 // Code Question 3
 
-const hamburger = { 
-    name: "Cheese Burger", 
-    weight: 250,
-    maker: {
-        name: "Anonymous Chef",
-        restaurant: {
-            name: "Hyur's Burgers",
-            address: "Main Street, 123",
-            isOpen: true,
-        },
-        age: 29
-    }
-};
+// const hamburger = { 
+//     name: "Cheese Burger", 
+//     weight: 250,
+//     maker: {
+//         name: "Anonymous Chef",
+//         restaurant: {
+//             name: "Hyur's Burgers",
+//             address: "Main Street, 123",
+//             isOpen: true,
+//         },
+//         age: 29
+//     }
+// };
 
-const secondBurger = structuredClone(hamburger);
-const thirdBurger = structuredClone(hamburger);
+// const secondBurger = structuredClone(hamburger);
+// const thirdBurger = structuredClone(hamburger);
 
 // Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice? Nove, tre array di oggetti con tre oggetti ciascuno;
 
@@ -82,3 +82,33 @@ const restaurant = {
 
 
 
+// Code Question 5 (Bonus)
+
+const hamburger = { 
+    name: "Cheese Burger", 
+    weight: 250,
+    maker: {
+        name: "Anonymous Chef",
+        restaurant: {
+            name: "Hyur's Burgers",
+            address: "Main Street, 123",
+            isOpen: true,
+        },
+        age: 29
+    }
+};
+
+const newRestaurant = {...hamburger.maker.restaurant};
+newRestaurant.name = "Hyur's II";
+newRestaurant.address = "Second Street, 12";
+const secondBurger = {...hamburger};
+secondBurger.maker.restaurant = newRestaurant;
+secondBurger.maker.name = "Chef Hyur";
+
+console.log(hamburger.maker.name); // Anonymous Chef
+console.log(secondBurger.maker.name); // Chef Yur
+console.log(hamburger.maker.restaurant.name); // newRestaurant
+console.log(secondBurger.maker.restaurant.name); // newRestaurant
+
+// Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
+// Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice? 7

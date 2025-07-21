@@ -59,23 +59,23 @@
 
 // Code Question 4
 
-const chef = {
-    name: "Chef Hyur",
-    age: 29,
-    makeBurger: (num = 1) => {
-        console.log(`Ecco ${num} hamburger per te!`);
-    },
-}
+// const chef = {
+//     name: "Chef Hyur",
+//     age: 29,
+//     makeBurger: (num = 1) => {
+//         console.log(`Ecco ${num} hamburger per te!`);
+//     },
+// }
 
-const restaurant = {
-    name: "Hyur's Burgers",
-    address: {
-        street: 'Main Street',
-        number: 123,
-    },
-    openingDate: new Date(2025, 3, 11),
-    isOpen: false,
-};
+// const restaurant = {
+//     name: "Hyur's Burgers",
+//     address: {
+//         street: 'Main Street',
+//         number: 123,
+//     },
+//     openingDate: new Date(2025, 3, 11),
+//     isOpen: false,
+// };
 
 // Qual è il metodo migliore per clonare l’oggetto chef, e perché? Lo spread operator, perché ci crea una copia dell'oggetto e un riferimento anche della funzione all'interno dell'oggetto, e non vi sono oggetti annidati;
 // Qual è il metodo migliore per clonare l’oggetto restaurant, e perché? Lo structuredClone(), perché ci permette di creare una copia degli oggetti complessi come Date in questo caso;
@@ -101,14 +101,43 @@ const hamburger = {
 const newRestaurant = {...hamburger.maker.restaurant};
 newRestaurant.name = "Hyur's II";
 newRestaurant.address = "Second Street, 12";
+
 const secondBurger = {...hamburger};
 secondBurger.maker.restaurant = newRestaurant;
 secondBurger.maker.name = "Chef Hyur";
 
-console.log(hamburger.maker.name); // Anonymous Chef
+console.log(hamburger.maker.name); // Chef Yur
 console.log(secondBurger.maker.name); // Chef Yur
-console.log(hamburger.maker.restaurant.name); // newRestaurant
-console.log(secondBurger.maker.restaurant.name); // newRestaurant
+console.log(hamburger.maker.restaurant.name); // Hyur's II
+console.log(secondBurger.maker.restaurant.name); // Hyur's II
 
 // Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
-// Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice? 7
+// Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice? 5
+
+
+
+// Code Question 6 (Bonus)
+
+const chef = {
+    name: "Chef Hyur",
+    age: 29,
+    makeBurger: (num = 1) => {
+        console.log(`Ecco ${num} hamburger per te!`);
+    },
+    restaurant: {
+        name: "Hyur's Burgers",
+        welcomeClient: () => {
+            console.log("Benvenuto!");
+        },
+        address: {
+            street: 'Main Street',
+            number: 123,
+            showAddress: () => {
+                console.log("Main Street 123");
+            }
+        },
+        isOpen: true,
+    }
+}
+
+// Qual è il metodo migliore per clonare l’oggetto chef, e perché?

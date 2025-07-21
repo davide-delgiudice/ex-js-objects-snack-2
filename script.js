@@ -140,4 +140,14 @@ const chef = {
     }
 }
 
-// Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+const chefCopy = {
+    ...chef,
+    restaurant: {
+        ...chef.restaurant,
+        address: {
+            ...chef.restaurant.address
+        }
+    }
+}
+
+// Qual è il metodo migliore per clonare l’oggetto chef, e perché? Lo spread operator, è l'unico metodo che ci permette di copiare delle funzioni all'interno dell'oggetto, ma siccome abbiamo degli oggetti con delle funzioni annidate abbiamo bisogno di annidare anche lo spread operator;
